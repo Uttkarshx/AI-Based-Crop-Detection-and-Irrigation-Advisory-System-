@@ -9,7 +9,7 @@ import pandas as pd
 import rasterio
 from rasterio.warp import transform
 
-from src.datasets.builder import write_datasets
+from src.datasets.builder import write_crop_classification
 from src.features.feature_pipeline import build_features
 from src.ingestion.ground_truth import index_field_ids, index_ground_truth, read_label
 from src.ingestion.sentinel1 import index_sentinel1, read_sentinel1
@@ -35,6 +35,47 @@ def _quality_report(report: dict[str, Any], output_dir: Path) -> None:
 		if key != "completed_at":
 			lines.append(f"- {key}: {json.dumps(value, default=str)}")
 	(report_dir / "data_quality.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def _feature_report(dataframe: pd.DataFrame, output_dir: Path) -> None:
+	report_dir = Path("outputs/reports")
+	report_dir.mkdir(parents=True, exist_ok=True)
+	feature_groups = {
+		"Sentinel-2": [column for column in dataframe.columns if column in {"coastal", "blue", "green", "red", "red_edge", "red_edge_2", "red_edge_3", "nir", "red_edge_4", "water_vapor", "swir1", "swir2", "ndvi", "evi", "ndwi", "ndmi", "savi"}],
+		"Sentinel-1": [column for column in dataframe.columns if column in {"vv", "vh", "vh_vv_ratio", "incidence_angle"}],
+		"Soil": [column for column in dataframe.columns if column.startswith("soil_") and column not in {"soil_moisture_percent", "soil_temperature_celsius", "soil_type"}],
+		"Weather": [column for column in dataframe.columns if column in {"rainfall_mm", "temperature_celsius", "humidity_percent", "wind_speed_ms", "solar_radiation_mj_m2"}],
+	}
+	feature_columns = [column for columns in feature_groups.values() for column in columns]
+	class_distribution = dataframe.loc[dataframe["crop_label"].notna()].groupby(["crop_code", "crop_label"]).field_id.nunique().to_dict()
+	missing = {column: int(value) for column, value in dataframe[feature_columns + ["crop_code", "crop_label"]].isna().sum().items() if value}
+	lines = [
+		"# Feature Extraction Report",
+		"",
+		f"- Total samples: {len(dataframe)}",
+		f"- Total fields: {dataframe['field_id'].nunique()}",
+		f"- States: {', '.join(sorted(dataframe['state'].dropna().unique()))}",
+		f"- Feature count: {len(feature_columns)}",
+		f"- Split counts: {dataframe['split'].value_counts().to_dict()}",
+		f"- Class distribution by field: {class_distribution}",
+		f"- Missing feature/target values: {missing}",
+		f"- Duplicate rows: {int(dataframe.duplicated().sum())}",
+		"",
+		"## Feature Groups",
+		"",
+	]
+	for name, columns in feature_groups.items():
+		lines.append(f"- {name} ({len(columns)}): {', '.join(columns)}")
+	lines.extend([
+		"",
+		"## Outputs",
+		"",
+		f"- Master: {output_dir / 'master_dataset.csv'}",
+		f"- Optical-only: {output_dir / 'optical_only.csv'}",
+		f"- SAR-only: {output_dir / 'sar_only.csv'}",
+		f"- Optical+SAR: {output_dir / 'optical_sar.csv'}",
+	])
+	(report_dir / "feature_extraction_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def _discover_and_validate(root: Path, logger: Any) -> dict[str, Any]:
@@ -192,7 +233,7 @@ def _record(
 		"date": weather.get("date"),
 		"latitude": latitude,
 		"longitude": longitude,
-		"crop_class_id": read_label(target_path) if target_path else None,
+		"crop_code": read_label(target_path) if target_path else None,
 		"crop_label": None,
 		"growth_stage_label": None,
 		"stress_label": None,
@@ -205,9 +246,11 @@ def _record(
 		"state": state,
 		"split": split,
 	}
-	crop_class_id = record["crop_class_id"]
-	if crop_class_id in label_mapping:
-		record["crop_label"] = label_mapping[crop_class_id]
+	crop_code = record["crop_code"]
+	if crop_code is not None:
+		if crop_code not in label_mapping:
+			raise ValueError(f"Unsupported AgriFieldNet crop code: {crop_code}")
+		record["crop_label"] = label_mapping[crop_code]
 	return record
 
 
@@ -244,13 +287,19 @@ def build_dataset(
 	if limit is not None:
 		fields = fields[:limit]
 	records = []
-	mapping = label_mapping or {}
+	configured_classes = loader.load_crop("default")["crop"]["classes"]
+	mapping = label_mapping or {int(item["code"]): item["name"] for item in configured_classes}
 	for field_id, split, target in fields:
 		record = _record(field_id, split, target, s1.get(field_id), s2[field_id], soil, loader, root / "meteorological" / "nasa_power", mapping)
 		if record:
 			records.append(record)
 	dataframe = pd.DataFrame(records)
-	paths = write_datasets(dataframe, output_dir)
+	final_dir = Path(output_dir)
+	if final_dir.name != "crop_classification":
+		final_dir = final_dir / "crop_classification"
+	paths = write_crop_classification(dataframe, final_dir, mapping)
+	master = pd.read_csv(paths["master_dataset"])
+	_feature_report(master, final_dir)
 	report["dataset"] = {"rows": len(dataframe), "columns": len(dataframe.columns), "output_files": {name: str(path) for name, path in paths.items()}}
 	report["missing_values"] = {column: int(value) for column, value in dataframe.isna().sum().items() if value}
 	report["records_skipped"] = len(fields) - len(dataframe)
@@ -263,7 +312,7 @@ def main() -> None:
 	parser = argparse.ArgumentParser()
 	parser.add_argument("--config-dir", default="configs")
 	parser.add_argument("--data-dir", default="data/raw")
-	parser.add_argument("--output-dir", default="data/processed")
+	parser.add_argument("--output-dir", default="data/processed/crop_classification")
 	parser.add_argument("--label-mapping")
 	parser.add_argument("--limit", type=int)
 	arguments = parser.parse_args()

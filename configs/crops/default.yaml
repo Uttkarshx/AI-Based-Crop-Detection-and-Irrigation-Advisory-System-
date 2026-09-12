@@ -1,6 +1,34 @@
 crop:
   name: "default"
-  display_name: "Unknown Crop"
+  display_name: "AgriFieldNet Crop Classes"
+
+  classes:
+    - code: 1
+      name: "wheat"
+    - code: 2
+      name: "mustard"
+    - code: 3
+      name: "lentil"
+    - code: 4
+      name: "fallow"
+    - code: 5
+      name: "green_pea"
+    - code: 6
+      name: "sugarcane"
+    - code: 8
+      name: "garlic"
+    - code: 9
+      name: "maize"
+    - code: 13
+      name: "gram"
+    - code: 14
+      name: "coriander"
+    - code: 15
+      name: "potato"
+    - code: 16
+      name: "bersem"
+    - code: 36
+      name: "rice"
 
   growth_stages:
     - name: "unknown"

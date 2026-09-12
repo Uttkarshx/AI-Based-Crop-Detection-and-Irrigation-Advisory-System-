@@ -4,6 +4,8 @@ import rasterio
 from pathlib import Path
 
 from src.datasets.split import split_by_field
+from src.datasets.validation import validate_crop_classification
+from src.utils.config import ConfigLoader
 from src.utils.validation import validate_raster, validate_weather
 
 
@@ -40,3 +42,19 @@ def test_field_split_has_no_overlap():
 	frame = pd.DataFrame({"field_id": [f"field_{index}" for index in range(20)]})
 	splits = split_by_field(frame, validation_fraction=0.2)
 	assert set(splits["train"]["field_id"]).isdisjoint(splits["validation"]["field_id"])
+
+
+def test_official_crop_mapping_and_targets():
+	classes = ConfigLoader().load_crop("default")["crop"]["classes"]
+	mapping = {int(item["code"]): item["name"] for item in classes}
+	frame = pd.DataFrame({
+		"state": ["bihar"],
+		"field_id": ["field_1"],
+		"date": [None],
+		"latitude": [25.0],
+		"longitude": [85.0],
+		"crop_code": [9],
+		"crop_label": ["maize"],
+		"split": ["train"],
+	})
+	validate_crop_classification(frame, mapping)

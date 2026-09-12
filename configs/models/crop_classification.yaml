@@ -16,8 +16,18 @@ model:
 
   classes:
     - "wheat"
-    - "rice"
+    - "mustard"
+    - "lentil"
+    - "fallow"
+    - "green_pea"
+    - "sugarcane"
+    - "garlic"
     - "maize"
+    - "gram"
+    - "coriander"
+    - "potato"
+    - "bersem"
+    - "rice"
 
   artifacts:
     directory: "models/crop"

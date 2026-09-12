@@ -60,7 +60,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 67600
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_001c1_field_ids.tif",
@@ -80,7 +80,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 67600
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_0023c.tif",
@@ -100,7 +100,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 80089
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_0023c_field_ids.tif",
@@ -120,7 +120,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 80089
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_005fe.tif",
@@ -140,7 +140,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 73170
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_005fe_field_ids.tif",
@@ -160,7 +160,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 73170
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_00720.tif",
@@ -180,7 +180,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 66564
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_00720_field_ids.tif",
@@ -200,7 +200,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 66564
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_008f2.tif",
@@ -220,7 +220,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 67600
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_008f2_field_ids.tif",
@@ -240,7 +240,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 67600
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_00c23.tif",
@@ -260,7 +260,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 70756
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_00c23_field_ids.tif",
@@ -280,7 +280,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 70756
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_0146f.tif",
@@ -300,7 +300,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 80089
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_0146f_field_ids.tif",
@@ -320,7 +320,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 80089
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_01b8e.tif",
@@ -340,7 +340,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 72900
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_01b8e_field_ids.tif",
@@ -360,7 +360,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 72900
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_02160.tif",
@@ -380,7 +380,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 72900
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_02160_field_ids.tif",
@@ -400,7 +400,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 72900
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_02248.tif",
@@ -420,7 +420,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 70756
     },
     {
       "path": "data\\raw\\sentinel1\\S1_train_02248_field_ids.tif",
@@ -440,7 +440,7 @@
       ],
       "dtype": "float64",
       "nodata": null,
-      "valid_pixels": 1
+      "valid_pixels": 70756
     }
   ],
   "label_samples": [
@@ -973,23 +973,32 @@
     }
   ],
   "dataset": {
-    "rows": 2,
-    "columns": 47,
+    "rows": 912,
+    "columns": 49,
     "output_files": {
-      "train": "data\\interim\\validation_sample\\train.csv",
-      "validation": "data\\interim\\validation_sample\\validation.csv",
-      "test": "data\\interim\\validation_sample\\test.csv"
+      "train": "data\\processed\\crop_classification\\train.csv",
+      "validation": "data\\processed\\crop_classification\\validation.csv",
+      "test": "data\\processed\\crop_classification\\test.csv",
+      "master_dataset": "data\\processed\\crop_classification\\master_dataset.csv",
+      "optical_only": "data\\processed\\crop_classification\\optical_only.csv",
+      "sar_only": "data\\processed\\crop_classification\\sar_only.csv",
+      "optical_sar": "data\\processed\\crop_classification\\optical_sar.csv"
     }
   },
   "missing_values": {
-    "date": 2,
-    "crop_label": 2,
-    "growth_stage_label": 2,
-    "stress_label": 2,
-    "soil_moisture_percent": 2,
-    "soil_temperature_celsius": 2,
-    "et0_mm": 2
+    "date": 912,
+    "crop_code": 412,
+    "crop_label": 412,
+    "growth_stage_label": 912,
+    "stress_label": 912,
+    "soil_moisture_percent": 912,
+    "soil_temperature_celsius": 912,
+    "vv": 412,
+    "vh": 412,
+    "vh_vv_ratio": 412,
+    "incidence_angle": 412,
+    "et0_mm": 912
   },
   "records_skipped": 0,
-  "completed_at": "2026-09-12T13:06:34.080237+00:00"
+  "completed_at": "2026-09-12T13:54:47.839138+00:00"
 }

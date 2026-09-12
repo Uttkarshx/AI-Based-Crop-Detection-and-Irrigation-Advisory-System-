@@ -166,8 +166,18 @@ class DatasetSchema:
 
     SUPPORTED_CROPS: ClassVar[tuple[str, ...]] = (
         "wheat",
-        "rice",
+        "mustard",
+        "lentil",
+        "fallow",
+        "green_pea",
+        "sugarcane",
+        "garlic",
         "maize",
+        "gram",
+        "coriander",
+        "potato",
+        "bersem",
+        "rice",
     )
 
     SUPPORTED_GROWTH_STAGES: ClassVar[tuple[str, ...]] = (
