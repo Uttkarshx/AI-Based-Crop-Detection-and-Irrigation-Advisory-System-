@@ -119,6 +119,14 @@ class DatasetSchema:
         "soil_type",
     )
 
+    SOIL_SOURCE_FEATURES: ClassVar[tuple[str, ...]] = (
+        "soil_clay_0-5cm",
+        "soil_sand_0-5cm",
+        "soil_silt_0-5cm",
+        "soil_soc_0-5cm",
+        "soil_phh2o_0-5cm",
+    )
+
     # ------------------------------------------------------------------
     # ML TARGET LABELS
     # ------------------------------------------------------------------

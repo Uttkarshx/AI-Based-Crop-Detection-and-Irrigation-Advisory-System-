@@ -1,0 +1,995 @@
+{
+  "discovered_files": {
+    "sentinel1": 1000,
+    "sentinel2": 14604,
+    "soil": 186,
+    "weather": 14,
+    "ground_truth": 1707
+  },
+  "processed_files": {
+    "raster_metadata": 15790,
+    "label_metadata": 1707,
+    "weather": 7
+  },
+  "failed_files": [
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_bihar_daily_2020_2025.csv",
+      "error": "Error tokenizing data. C error: Expected 1 fields in line 12, saw 5\n"
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_haryana_daily_2020_2025.csv",
+      "error": "Error tokenizing data. C error: Expected 1 fields in line 12, saw 5\n"
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_jharkhand_daily_2020_2025.csv",
+      "error": "Error tokenizing data. C error: Expected 1 fields in line 12, saw 5\n"
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_odisha_daily_2020_2025.csv",
+      "error": "Error tokenizing data. C error: Expected 1 fields in line 12, saw 5\n"
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_punjab_daily_2020_2025.csv",
+      "error": "Error tokenizing data. C error: Expected 1 fields in line 12, saw 5\n"
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_rajasthan_daily_2020_2025.csv",
+      "error": "Error tokenizing data. C error: Expected 1 fields in line 12, saw 5\n"
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_uttar_pradesh_daily_2020_2025.csv",
+      "error": "Error tokenizing data. C error: Expected 1 fields in line 12, saw 5\n"
+    }
+  ],
+  "raster_samples": [
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_001c1.tif",
+      "width": 260,
+      "height": 260,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        589580.0,
+        2833900.0,
+        592180.0,
+        2836500.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_001c1_field_ids.tif",
+      "width": 260,
+      "height": 260,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        589580.0,
+        2833900.0,
+        592180.0,
+        2836500.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_0023c.tif",
+      "width": 283,
+      "height": 283,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        -543110.0,
+        2774740.0,
+        -540280.0,
+        2777570.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_0023c_field_ids.tif",
+      "width": 283,
+      "height": 283,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        -543110.0,
+        2774740.0,
+        -540280.0,
+        2777570.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_005fe.tif",
+      "width": 270,
+      "height": 271,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        -26430.0,
+        3054850.0,
+        -23730.0,
+        3057560.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_005fe_field_ids.tif",
+      "width": 270,
+      "height": 271,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        -26430.0,
+        3054850.0,
+        -23730.0,
+        3057560.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_00720.tif",
+      "width": 258,
+      "height": 258,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        546070.0,
+        2813430.0,
+        548650.0,
+        2816010.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_00720_field_ids.tif",
+      "width": 258,
+      "height": 258,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        546070.0,
+        2813430.0,
+        548650.0,
+        2816010.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_008f2.tif",
+      "width": 260,
+      "height": 260,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        587020.0,
+        2846700.0,
+        589620.0,
+        2849300.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_008f2_field_ids.tif",
+      "width": 260,
+      "height": 260,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        587020.0,
+        2846700.0,
+        589620.0,
+        2849300.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_00c23.tif",
+      "width": 266,
+      "height": 266,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        158640.0,
+        2135850.0,
+        161300.0,
+        2138510.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_00c23_field_ids.tif",
+      "width": 266,
+      "height": 266,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        158640.0,
+        2135850.0,
+        161300.0,
+        2138510.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_0146f.tif",
+      "width": 283,
+      "height": 283,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        -555270.0,
+        2754980.0,
+        -552440.0,
+        2757810.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_0146f_field_ids.tif",
+      "width": 283,
+      "height": 283,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        -555270.0,
+        2754980.0,
+        -552440.0,
+        2757810.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_01b8e.tif",
+      "width": 270,
+      "height": 270,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        -28370.0,
+        3067810.0,
+        -25670.0,
+        3070510.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_01b8e_field_ids.tif",
+      "width": 270,
+      "height": 270,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        -28370.0,
+        3067810.0,
+        -25670.0,
+        3070510.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_02160.tif",
+      "width": 270,
+      "height": 270,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        17790.0,
+        3065560.0,
+        20490.0,
+        3068260.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_02160_field_ids.tif",
+      "width": 270,
+      "height": 270,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        17790.0,
+        3065560.0,
+        20490.0,
+        3068260.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_02248.tif",
+      "width": 266,
+      "height": 266,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        79690.0,
+        2151410.0,
+        82350.0,
+        2154070.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    },
+    {
+      "path": "data\\raw\\sentinel1\\S1_train_02248_field_ids.tif",
+      "width": 266,
+      "height": 266,
+      "bands": 3,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        79690.0,
+        2151410.0,
+        82350.0,
+        2154070.0
+      ],
+      "dtype": "float64",
+      "nodata": null,
+      "valid_pixels": 1
+    }
+  ],
+  "label_samples": [
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_001c1.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        589600.0,
+        2833920.0,
+        592160.0,
+        2836480.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "9": 38
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_0023c.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32643",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        674080.0,
+        2736640.0,
+        676640.0,
+        2739200.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "2": 57
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_005fe.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        566560.0,
+        3043840.0,
+        569120.0,
+        3046400.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "1": 177,
+        "6": 27
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_00720.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        546080.0,
+        2813440.0,
+        548640.0,
+        2816000.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "1": 11,
+        "2": 9,
+        "4": 47,
+        "9": 129
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_008f2.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        587040.0,
+        2846720.0,
+        589600.0,
+        2849280.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "4": 70,
+        "9": 17,
+        "36": 4
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_00c23.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        789280.0,
+        2135040.0,
+        791840.0,
+        2137600.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "4": 22
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_0146f.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32643",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        663840.0,
+        2716160.0,
+        666400.0,
+        2718720.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "1": 65
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_01b8e.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        564000.0,
+        3056640.0,
+        566560.0,
+        3059200.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "1": 30
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_02160.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        610080.0,
+        3056640.0,
+        612640.0,
+        3059200.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "1": 126,
+        "2": 49,
+        "4": 184
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_02248.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        709920.0,
+        2147840.0,
+        712480.0,
+        2150400.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "15": 28,
+        "36": 220
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_02694.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        645920.0,
+        3043840.0,
+        648480.0,
+        3046400.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "1": 288,
+        "2": 151,
+        "4": 119
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_0276d.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        750880.0,
+        2114560.0,
+        753440.0,
+        2117120.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "4": 28
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_02f8a.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32643",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        651040.0,
+        2754560.0,
+        653600.0,
+        2757120.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "2": 391
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_03517.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        558880.0,
+        3005440.0,
+        561440.0,
+        3008000.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "1": 157,
+        "2": 150,
+        "16": 14
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_03875.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        653600.0,
+        3005440.0,
+        656160.0,
+        3008000.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "1": 15,
+        "2": 27
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_03bcc.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        779040.0,
+        2112000.0,
+        781600.0,
+        2114560.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "4": 45
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_04867.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        625440.0,
+        3043840.0,
+        628000.0,
+        3046400.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "1": 173,
+        "2": 107,
+        "3": 44,
+        "4": 128,
+        "5": 28,
+        "6": 17
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_048eb.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        553760.0,
+        3020800.0,
+        556320.0,
+        3023360.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "1": 126,
+        "2": 31,
+        "6": 42
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_04e04.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32644",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        643360.0,
+        3043840.0,
+        645920.0,
+        3046400.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "2": 47,
+        "4": 12
+      }
+    },
+    {
+      "path": "data\\raw\\ground_truth\\train_labels\\ref_agrifieldnet_competition_v1_labels_train_04e52.tif",
+      "width": 256,
+      "height": 256,
+      "bands": 1,
+      "crs": "EPSG:32645",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        525600.0,
+        2836480.0,
+        528160.0,
+        2839040.0
+      ],
+      "dtype": "uint16",
+      "nodata": 0.0,
+      "label_distribution": {
+        "9": 124
+      }
+    }
+  ],
+  "weather": [
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_bihar_daily_2020_2025_complete.csv",
+      "rows": 2192,
+      "date_start": "2020-01-01",
+      "date_end": "2025-12-31",
+      "duplicate_dates": 0,
+      "invalid_numeric_values": 0,
+      "missing_values": 0
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_haryana_daily_2020_2025_complete.csv",
+      "rows": 2192,
+      "date_start": "2020-01-01",
+      "date_end": "2025-12-31",
+      "duplicate_dates": 0,
+      "invalid_numeric_values": 0,
+      "missing_values": 0
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_jharkhand_daily_2020_2025_complete.csv",
+      "rows": 2192,
+      "date_start": "2020-01-01",
+      "date_end": "2025-12-31",
+      "duplicate_dates": 0,
+      "invalid_numeric_values": 0,
+      "missing_values": 0
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_odisha_daily_2020_2025_complete.csv",
+      "rows": 2192,
+      "date_start": "2020-01-01",
+      "date_end": "2025-12-31",
+      "duplicate_dates": 0,
+      "invalid_numeric_values": 0,
+      "missing_values": 0
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_punjab_daily_2020_2025_complete.csv",
+      "rows": 2192,
+      "date_start": "2020-01-01",
+      "date_end": "2025-12-31",
+      "duplicate_dates": 0,
+      "invalid_numeric_values": 0,
+      "missing_values": 0
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_rajasthan_daily_2020_2025_complete.csv",
+      "rows": 2192,
+      "date_start": "2020-01-01",
+      "date_end": "2025-12-31",
+      "duplicate_dates": 0,
+      "invalid_numeric_values": 0,
+      "missing_values": 0
+    },
+    {
+      "path": "data\\raw\\meteorological\\nasa_power\\nasa_power_uttar_pradesh_daily_2020_2025_complete.csv",
+      "rows": 2192,
+      "date_start": "2020-01-01",
+      "date_end": "2025-12-31",
+      "duplicate_dates": 0,
+      "invalid_numeric_values": 0,
+      "missing_values": 0
+    }
+  ],
+  "dataset": {
+    "rows": 2,
+    "columns": 47,
+    "output_files": {
+      "train": "data\\interim\\validation_sample\\train.csv",
+      "validation": "data\\interim\\validation_sample\\validation.csv",
+      "test": "data\\interim\\validation_sample\\test.csv"
+    }
+  },
+  "missing_values": {
+    "date": 2,
+    "crop_label": 2,
+    "growth_stage_label": 2,
+    "stress_label": 2,
+    "soil_moisture_percent": 2,
+    "soil_temperature_celsius": 2,
+    "et0_mm": 2
+  },
+  "records_skipped": 0,
+  "completed_at": "2026-09-12T13:06:34.080237+00:00"
+}
