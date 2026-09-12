@@ -1,0 +1,31 @@
+model:
+  name: "crop_classification"
+
+  task: "crop_classification"
+
+  enabled: true
+
+  version: "v1.0"
+
+  framework: "scikit-learn"
+
+  algorithm: "RandomForest"
+
+  confidence:
+    minimum: 0.70
+
+  classes:
+    - "wheat"
+    - "rice"
+    - "maize"
+
+  artifacts:
+    directory: "models/crop"
+
+  evaluation:
+    metrics:
+      - "accuracy"
+      - "precision"
+      - "recall"
+      - "f1"
+      - "confusion_matrix"

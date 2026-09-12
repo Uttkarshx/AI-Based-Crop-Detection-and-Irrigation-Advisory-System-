@@ -1,0 +1,15 @@
+study_area:
+  name: "custom"
+  display_name: "Custom Study Area"
+
+  country: "India"
+
+  enabled: false
+
+  coordinate_system:
+    crs: "EPSG:4326"
+
+  crops:
+    - "wheat"
+    - "rice"
+    - "maize"

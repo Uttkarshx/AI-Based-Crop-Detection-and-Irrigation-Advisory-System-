@@ -1,0 +1,40 @@
+study_area:
+  name: "haryana"
+  display_name: "Haryana"
+
+  country: "India"
+
+  enabled: true
+
+  coordinate_system:
+    crs: "EPSG:4326"
+
+  bounds:
+    min_latitude: 27.6
+    max_latitude: 30.9
+    min_longitude: 74.5
+    max_longitude: 77.6
+
+  crops:
+    - "wheat"
+    - "rice"
+    - "maize"
+
+  datasets:
+    sentinel1:
+      enabled: true
+      path: "data/raw/sentinel1"
+    sentinel2:
+      enabled: true
+      path: "data/raw/sentinel2"
+      temporal: true
+    soilgrids:
+      enabled: true
+      path: "data/raw/soil"
+    nasa_power:
+      enabled: true
+      path: "data/raw/meteorological/nasa_power"
+    ground_truth:
+      enabled: true
+      train_labels_path: "data/raw/ground_truth/train_labels"
+      test_labels_path: "data/raw/ground_truth/test_labels"

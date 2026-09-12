@@ -1,0 +1,14 @@
+project:
+  environment: "development"
+
+application:
+  debug: true
+
+logging:
+  level: "DEBUG"
+
+database:
+  enabled: true
+
+weather:
+  cache_enabled: true

@@ -1,0 +1,23 @@
+crop:
+  name: "default"
+  display_name: "Unknown Crop"
+
+  growth_stages:
+    - name: "unknown"
+      order: 0
+
+  irrigation:
+    soil_moisture_threshold_percent: 30.0
+
+    rainfall:
+      low_threshold_mm: 5.0
+      high_threshold_mm: 20.0
+
+    temperature:
+      high_threshold_celsius: 35.0
+
+    humidity:
+      low_threshold_percent: 40.0
+
+  confidence:
+    minimum_crop_confidence: 0.70

@@ -1,0 +1,32 @@
+model:
+  name: "growth_stage"
+
+  task: "growth_stage_classification"
+
+  enabled: true
+
+  version: "v1.0"
+
+  framework: "scikit-learn"
+
+  algorithm: "RandomForest"
+
+  confidence:
+    minimum: 0.70
+
+  classes:
+    - "germination"
+    - "vegetative"
+    - "reproductive"
+    - "maturity"
+
+  artifacts:
+    directory: "models/growth_stage"
+
+  evaluation:
+    metrics:
+      - "accuracy"
+      - "precision"
+      - "recall"
+      - "f1"
+      - "confusion_matrix"

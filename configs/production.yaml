@@ -1,0 +1,14 @@
+project:
+  environment: "production"
+
+application:
+  debug: false
+
+logging:
+  level: "WARNING"
+
+database:
+  enabled: true
+
+weather:
+  cache_enabled: true

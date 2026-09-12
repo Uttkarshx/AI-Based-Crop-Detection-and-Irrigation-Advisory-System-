@@ -1,0 +1,30 @@
+model:
+  name: "stress_detection"
+
+  task: "crop_health"
+
+  enabled: true
+
+  version: "v1.0"
+
+  framework: "scikit-learn"
+
+  algorithm: "RandomForest"
+
+  confidence:
+    minimum: 0.70
+
+  classes:
+    - "healthy"
+    - "stressed"
+
+  artifacts:
+    directory: "models/stress"
+
+  evaluation:
+    metrics:
+      - "accuracy"
+      - "precision"
+      - "recall"
+      - "f1"
+      - "confusion_matrix"

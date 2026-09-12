@@ -1,0 +1,86 @@
+project:
+  name: "AI-Based Crop Detection and Irrigation Advisory System"
+  version: "1.0.0"
+  environment: "development"
+
+application:
+  timezone: "Asia/Kolkata"
+  debug: false
+
+paths:
+  data: "data"
+  raw_data: "data/raw"
+  interim_data: "data/interim"
+  processed_data: "data/processed"
+  external_data: "data/external"
+  models: "models"
+  outputs: "outputs"
+  reports: "outputs/reports"
+  predictions: "outputs/predictions"
+  metrics: "outputs/metrics"
+  maps: "outputs/maps"
+
+data:
+  image:
+    allowed_extensions:
+      - ".jpg"
+      - ".jpeg"
+      - ".png"
+
+    max_size_mb: 10
+
+  location:
+    required: true
+
+  farm:
+    area_required: true
+    soil_type_required: true
+
+crop:
+  supported:
+    - "wheat"
+    - "rice"
+    - "maize"
+
+  default: "default"
+
+model:
+  confidence:
+    minimum: 0.70
+    advisory_threshold: 0.70
+
+irrigation:
+  enabled: true
+
+  inputs:
+    soil_moisture: true
+    temperature: true
+    humidity: true
+    rainfall: true
+    evapotranspiration: true
+    farm_area: true
+    last_irrigation: true
+
+  thresholds:
+    rainfall_forecast_low_mm: 5.0
+    rainfall_forecast_high_mm: 20.0
+    high_temperature_celsius: 35.0
+    low_humidity_percent: 40.0
+
+  recommendation:
+    priorities:
+      - "Low"
+      - "Medium"
+      - "High"
+
+weather:
+  provider: "default"
+  timeout_seconds: 10
+  cache_enabled: true
+
+database:
+  enabled: true
+
+logging:
+  level: "INFO"
+  file_enabled: true
